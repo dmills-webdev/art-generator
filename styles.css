@@ -1,0 +1,36 @@
+.main-container {
+  margin: 0 auto;
+  width: 800px;
+}
+
+#canvas {
+  height: 800px;
+  width: 100%;
+  display: grid;
+}
+
+.canvas-cell {
+  max-height: 200px;
+  max-width: 200px;
+  background-size: 100% 100%;
+}
+
+.canvas-controls {
+  background-color: green;
+}
+
+.cell-fill-1 {
+  background-image: url("img/1.png");
+}
+
+.cell-fill-2 {
+  background-image: url("img/2.png");
+}
+
+.cell-fill-3 {
+  background-image: url("img/3.png");
+}
+
+.cell-fill-4 {
+  background-image: url("img/4.png");
+}
