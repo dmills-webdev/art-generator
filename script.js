@@ -1,3 +1,4 @@
+////////////////////////////////////////////////////////////////////////////////
 const canvas = (() => {
 //Local Variables
   const canvas = {};
@@ -53,4 +54,36 @@ const canvas = (() => {
     }
   }
   return canvas;
+})();
+
+////////////////////////////////////////////////////////////////////////////////
+const controller = (() => {
+  const controller = {};
+  controller.activeToggle = false;
+
+
+  controller.startAuto = () => {
+    if (controller.activeToggle == false) {
+      controller.activeToggle = !controller.activeToggle;
+      controller.auto();
+    }
+    else {
+      return;
+    }
+  }
+
+
+  controller.stopAuto = () => {
+    controller.activeToggle = !controller.activeToggle;
+    clearInterval(controller.autoGenerate);
+  }
+
+
+  controller.auto = () => {
+    canvas.draw()
+    controller.autoGenerate = setInterval(canvas.draw,1000);
+  }
+
+
+  return controller
 })();
