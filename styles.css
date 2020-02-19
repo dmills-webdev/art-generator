@@ -17,6 +17,7 @@
 
 .canvas-controls {
   background-color: green;
+  height: 200px;
 }
 
 .cell-fill-1 {

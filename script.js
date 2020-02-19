@@ -4,19 +4,23 @@ const canvas = (() => {
   const webCanvas = document.getElementById("canvas");
   canvas.cell = [0,1,2,3,4,5,6,7,8,9];
 
-//Takes inputs on the design of the next canvas
-  canvas.getDesign = (x,y) => {
-    canvas.x = x;
-    canvas.y = y;
-  }
 
-//Generates the fill pattern for the next grid
-  canvas.generate = () => {
-    let i = 0;
-    for (i = 0; i < (canvas.x*canvas.y); ++i ) {
-      console.log(i);
+
+//Takes inputs on the design of the next canvas
+  canvas.getDesign = () => {
+    let x = document.getElementById("grid-width").value;
+    let y = document.getElementById("grid-height").value;
+
+    if (x && y == 0) {  //Default values incase inputs are left empty
+      canvas.x = 20;
+      canvas.y = 20;
+    }
+    else {              //Otherwise take user input
+      canvas.x = x;
+      canvas.y = y;
     }
   }
+
 
 //Picks a random cell pattern from the options
   canvas.randomCell = () => {
@@ -24,8 +28,11 @@ const canvas = (() => {
     return i;
   }
 
+
 //Draws the canvas to the display
   canvas.draw = () => {
+    canvas.clear();
+    canvas.getDesign();
     for (i = 0; i < (canvas.x*canvas.y); ++i) {
       const cell = document.createElement("div");
 
@@ -35,15 +42,15 @@ const canvas = (() => {
       webCanvas.style.gridTemplateRows=('repeat(' + canvas.y + ', ' + (800 / canvas.y) + 'px)');
       webCanvas.appendChild(cell);
     }
-
   }
+
 
 //Clears the current canvas on display
   canvas.clear = () => {
-
+    let child = document.getElementsByClassName("canvas-cell");
+    while(child[0]) { // Loop removes the entirity of the previous display output
+      child[0].parentNode.removeChild(child[0]);
+    }
   }
   return canvas;
 })();
-
-canvas.getDesign(40,40);
-canvas.draw();
