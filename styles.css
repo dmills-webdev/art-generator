@@ -3,6 +3,51 @@
   width: 800px;
 }
 
+.canvas-controls {
+  height: auto;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 20px;
+  grid-template-areas:
+    "height interval"
+    "width  auto-generate_start"
+    "basic-generate auto-generate_stop";
+}
+
+.controls-box {
+  justify-self: center;
+}
+
+.height {
+  grid-area: height;
+}
+
+.width {
+  grid-area: width;
+}
+
+.basic-generate {
+  grid-area: basic-generate;
+}
+
+.interval {
+  grid-area: interval;
+}
+
+.auto-generate_start {
+  grid-area: auto-generate_start;
+}
+
+.auto-generate_stop {
+  grid-area: auto-generate_stop;
+}
+
+
+
+
+
 #canvas {
   height: 800px;
   width: 100%;
@@ -13,11 +58,6 @@
   max-height: 200px;
   max-width: 200px;
   background-size: 100% 100%;
-}
-
-.canvas-controls {
-  background-color: green;
-  height: 200px;
 }
 
 .cell-fill-1 {

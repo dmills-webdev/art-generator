@@ -80,10 +80,13 @@ const controller = (() => {
 
 
   controller.auto = () => {
+    let autoInterval = (document.getElementById("auto-interval").value * 1000);
     canvas.draw()
-    controller.autoGenerate = setInterval(canvas.draw,1000);
+    controller.autoGenerate = setInterval(canvas.draw,autoInterval);
   }
 
 
   return controller
 })();
+
+canvas.draw();

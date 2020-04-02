@@ -12,16 +12,27 @@
 
   <div class="main-container">
     <div class="canvas-controls">
-      <input id="grid-width" value="10"></input>
-      <input id="grid-height" value="10"></input>
-      <div id="generate-grid" onclick="canvas.draw();">generate</div>
-      <div id="start-auto-generate" onclick="controller.startAuto();">auto generate start</div>
-      <div id="stop-auto-generate" onclick="controller.stopAuto();">auto generate stop</div>
+        <div class="controls-box width">
+          <div>Grid width</div><input id="grid-width" value="10"></input>
+        </div>
+
+        <div class="controls-box height">
+          <div>Grid height</div><input id="grid-height" value="10"></input>
+        </div>
+
+        <div id="generate-grid" class="controls-box basic-generate" onclick="canvas.draw();">Generate single grid</div>
+
+        <div class="controls-box interval">
+          <div>Interval in seconds</div><input id="auto-interval" value="1"></input>
+        </div>
+
+        <div id="start-auto-generate" class="controls-box auto-generate_start" onclick="controller.startAuto();">Start automatic grid generation</div>
+
+        <div id="stop-auto-generate" class="controls-box auto-generate_stop" onclick="controller.stopAuto();">Stop automatic grid generation</div>
     </div>
     <div id="canvas">
     </div>
   </div>
-
 
   <script src="script.js"></script>
 </body>
