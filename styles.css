@@ -11,9 +11,10 @@
   grid-template-rows: auto;
   grid-gap: 20px;
   grid-template-areas:
-    "height interval"
-    "width  auto-generate_start"
-    "basic-generate auto-generate_stop";
+    "height           interval"
+    "width            auto-generate_start"
+    "basic-generate   auto-generate_stop";
+  background: radial-gradient(circle at 25% 75%, #f6f1d3, #648880 );
 }
 
 .controls-box {
@@ -45,33 +46,31 @@
 }
 
 
-
-
-
 #canvas {
   height: 800px;
   width: 100%;
   display: grid;
 }
 
-.canvas-cell {
-  max-height: 200px;
-  max-width: 200px;
+#canvas div {
   background-size: 100% 100%;
 }
 
+.cell-fill-0 {
+  background: #fff;
+}
 .cell-fill-1 {
-  background-image: url("img/1.png");
+  background: #ccc;
 }
-
 .cell-fill-2 {
-  background-image: url("img/2.png");
+  background: #999;
 }
-
 .cell-fill-3 {
-  background-image: url("img/3.png");
+  background: #666;
 }
-
 .cell-fill-4 {
-  background-image: url("img/4.png");
+  background: #333;
+}
+.cell-fill-5 {
+  background: #000;
 }
