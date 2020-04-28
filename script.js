@@ -15,7 +15,7 @@ const canvas = (() => {
     let x = document.getElementById("grid-width").value;
     let y = document.getElementById("grid-height").value;
 
-    if (x && y == 0) {  //Default values incase inputs are left empty
+    if ( x && y == false ) {  //Default values incase inputs are left at 0
       canvas.x = 10;
       canvas.y = 10;
     }
@@ -40,12 +40,6 @@ const canvas = (() => {
     }
   }
 
-// Picks a random cell pattern from the options
-  canvas.randomCellFill = () => {
-    let i = Math.floor(Math.random()*6); //CHANGE based on number of cell fill options
-    return i;
-  }
-
 ////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////// Canvas creation
 ////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +47,7 @@ const canvas = (() => {
 
   canvas.new = () => {
     canvas.getDesign();
-    if (canvas.checkForChange()) {
+    if (canvas.checkForChange()) { // Checks if a re-draw of the grid is needed
       canvas.previousx = canvas.x;
       canvas.previousy = canvas.y;
       canvas.drawGrid();
@@ -63,7 +57,7 @@ const canvas = (() => {
 
 // Create unstyled grid
   canvas.drawGrid = () => {
-    for (i = 0; i < (canvas.x*canvas.y); ++i) {
+    for (let i = 0; i < (canvas.x*canvas.y); ++i) {
       const cell = document.createElement("div");
       cell.classList.add("cell-fill-0");
       webCanvas.appendChild(cell); // Adds grid of cells to DOM
@@ -72,12 +66,17 @@ const canvas = (() => {
 
 // Style the unstyled grid on display
   canvas.fillCells = () => {
+    const cells = webCanvas.children;
     const regexp =  new RegExp(/\d\b/);
-    let cells = webCanvas.children;
-
-    for (i = 0; i < (canvas.x*canvas.y); ++i) {
+      for (let i = 0; i < (canvas.x*canvas.y); ++i) {
       cells[i].className = cells[i].className.replace(regexp, canvas.randomCellFill());
-    }
+     }
+  }
+
+// Picks a random cell pattern from the options
+  canvas.randomCellFill = () => {
+    let i = Math.floor(Math.random()*6); //CHANGE based on number of cell fill options
+    return i;
   }
 
   return canvas;
